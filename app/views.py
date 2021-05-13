@@ -33,12 +33,12 @@ def stats(request):
     test_stat = 0
     original_stat = 0
     try:
-        test_stat = counter_click['test'] / counter_show['test']
+        test_stat = counter_show['test'] / counter_click['test']
     except ZeroDivisionError:
         pass
 
     try:
-        original_stat = counter_click['original'] / counter_show['original']
+        original_stat = counter_show['original'] / counter_click['original']
     except ZeroDivisionError:
         pass
     return render(request, 'stats.html', context={
