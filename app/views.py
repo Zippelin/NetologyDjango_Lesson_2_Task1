@@ -16,9 +16,11 @@ def index(request):
 
 
 def landing(request):
-    template = 'landing.html'
+    template = 'index.html'
     if request.GET.get('ab-test-arg') == 'test':
         template = 'landing_alternate.html'
+    elif request.GET.get('ab-test-arg') == 'original':
+        template = 'landing.html'
     counter_show.update([request.GET.get('ab-test-arg')])
     # Реализуйте дополнительное отображение по шаблону app/landing_alternate.html
     # в зависимости от GET параметра ab-test-arg
